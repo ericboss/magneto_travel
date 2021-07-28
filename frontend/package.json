@@ -14,7 +14,8 @@
     "react-map-gl": "^6.1.12",
     "react-scripts": "4.0.3",
     "timeago.js": "^4.0.2",
-    "web-vitals": "^1.0.1"
+    "web-vitals": "^1.0.1",
+    "worker-loader": "^3.0.8"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -30,10 +31,11 @@
   },
   "browserslist": {
     "production": [
-      ">0.2%", "not dead",
+      ">0.2%",
+      "not dead",
       "not ie 11",
-       "not chrome < 51",
-        "not safari < 10"
+      "not chrome < 51",
+      "not safari < 10"
     ],
     "development": [
       "last 1 chrome version",
