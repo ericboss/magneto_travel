@@ -8,6 +8,8 @@ const pinRoute = require("./routes/pins");
 dotenv.config();
 
 app.use(express.json());
+app.set('port', (process.env.PORT || 5000));
+app.use(express.static(__dirname + '/frontend'));
 
 mongoose 
  .connect(process.env.MONGO_URL, {
