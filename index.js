@@ -8,8 +8,12 @@ const pinRoute = require("./routes/pins");
 dotenv.config();
 
 app.use(express.json());
-app.set('port', (process.env.PORT || 5000));
-app.use(express.static(__dirname + '/frontend'));
+
+// Accessing the path module
+const path = require("path");
+
+
+
 
 mongoose 
  .connect(process.env.MONGO_URL, {
@@ -21,6 +25,14 @@ mongoose
 
 app.use("/api/users", userRoute);
 app.use("/api/pins", pinRoute);
+
+// Step 1:
+app.use(express.static(path.resolve(__dirname, "./frontend/build")));
+// Step 2:
+app.get("*", function (request, response) {
+  response.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
