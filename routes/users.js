@@ -3,7 +3,7 @@ const router = require("express").Router();
 const bcrypt = require("bcrypt");
 
 //REGISTER
-router.post("https://magneto-travel.herokuapp.com/api/register", async (req, res) => {
+router.post("/register", async (req, res) => {
   try {
     //generate new password
     const salt = await bcrypt.genSalt(10);
@@ -26,7 +26,7 @@ router.post("https://magneto-travel.herokuapp.com/api/register", async (req, res
 });
 
 //LOGIN
-router.post("https://magneto-travel.herokuapp.com/api/login", async (req, res) => {
+router.post("/login", async (req, res) => {
   try {
     //find user
     const user = await User.findOne({ username: req.body.username });
